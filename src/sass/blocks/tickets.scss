@@ -1,0 +1,157 @@
+.tickets {
+  max-width: 502px;
+  margin-left: 20px;
+  width: 100%;
+}
+
+// кнопки фильтра
+
+.tickets__filter-list {
+  display: flex;
+  width: 100%;
+  min-height: 50px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.tickets__filter-list li {
+  width: 50%;
+  padding: 14px 0;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  align-content: center;
+  border: 1px solid #dfe5ec;
+  color: #4a4a4a;
+  box-sizing: border-box;
+
+  &:hover {
+    cursor: pointer;
+    color: #ffffff;
+    border: 1px solid #2196f3;
+    background-color: #2196f3;
+  }
+}
+
+.tickets__filter-list li:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.tickets__filter-list li:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+// список билетов
+
+.tickets__tickets-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-top: 21px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.tickets__tickets-list li {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 27px 20px 19px 20px;
+  margin-top: 20px;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tickets__tickets-list li:first-child {
+  margin-top: 0;
+}
+
+.tickets__tickets-list p {
+  margin: 0;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2196f3;
+}
+
+.tickets__logo-wrapper {
+  margin-top: -6px;
+}
+
+// Направление 'туда'
+
+.tickets__forward-wrapper {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+
+// Направление 'обратно'
+
+.tickets__backward-wrapper {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+}
+
+// Общие стили направлений
+
+.tickets__time {
+  margin-left: 16%;
+}
+
+.tickets__stops {
+  margin-left: 22.5%;
+}
+
+.tickets__forward-wrapper span,
+.tickets__backward-wrapper span {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #a0b0b9;
+}
+
+.tickets__forward-wrapper p,
+.tickets__backward-wrapper p {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: #4a4a4a;
+}
+
+//Кнопка показать еще
+
+.tickets a {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: #2196f3;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
