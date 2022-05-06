@@ -1,6 +1,14 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFilters, setFilters } from "../store/action";
+import { getFilterList } from "../store/data/selector";
 
 function Form() {
+
+  const dispatch = useDispatch();
+
+  const ff = useSelector(getFilterList);
+
   return (
     <form>
       <fieldset title="Работа со временем">  
@@ -11,7 +19,8 @@ function Form() {
             <label htmlFor="transfer-all">Все</label>
           </li>
           <li>
-            <input className="visually-hidden" type="checkbox" name="transfer-zero" id="transfer-zero" />
+            <input className="visually-hidden" type="checkbox" name="transfer-zero" id="transfer-zero" 
+              onChange={() => dispatch(setFilters(['0']))}/>
             <label htmlFor="transfer-zero">Без пересадок</label>
           </li>
           <li>

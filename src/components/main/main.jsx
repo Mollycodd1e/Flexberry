@@ -2,8 +2,10 @@ import React from 'react';
 import Header from '../header/header.jsx';
 import Form from '../form/form.jsx';
 import TicketsList from '../tickets-list/tickets-list.jsx';
+import SortList from '../sort-list/sort-list.jsx';
 
 function Main() {
+  
   return (
     <div className="body__wrapper">
       <Header />
@@ -12,14 +14,7 @@ function Main() {
           <Form />
         </section>
         <section className="tickets">
-          <ul className="tickets__filter-list">
-            <li>
-              <span>Самый дешевый</span>
-            </li>
-            <li>
-              <span>Самый быстрый</span>
-            </li>
-          </ul>
+          <SortList />
           <TicketsList />
           <a href="#">Показать еще 5 билетов!</a>
         </section>

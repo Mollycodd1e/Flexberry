@@ -106,12 +106,19 @@
 
 // Общие стили направлений
 
+.tickets__destination {
+  max-width: 90px;
+}
+
 .tickets__time {
+  min-width: 88px;
   margin-left: 16%;
 }
 
 .tickets__stops {
-  margin-left: 22.5%;
+  width: 92px;
+  margin-left: auto;
+  margin-right: 9.6%;
 }
 
 .tickets__forward-wrapper span,

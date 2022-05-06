@@ -1,5 +1,7 @@
 import {NameSpace} from '../reducer.js';
 
-export const getAddress = (state) => state[NameSpace.DATA].address;
+export const getTicketsList = (state) => state[NameSpace.DATA].tickets;
 
-export const getCoords = (state) => state[NameSpace.DATA].coords;
+export const getFilterList = (state) => state[NameSpace.DATA].filters;
+
+export const getFormList = (state) => state[NameSpace.DATA].formList;

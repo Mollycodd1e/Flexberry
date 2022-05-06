@@ -1,20 +1,28 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {loadTickets} from '../action';
+import {deleteFilters, loadTickets, setFilters, addFormList} from '../action.js';
 
 const initialState = {
-  tickets: ['Москва','Москва','Москва','Москва','Москва'],
+  tickets: [],
+  filters: [],
+  formList: [],
 };
 
 const data = createReducer(initialState, (builder) => {
   builder
     .addCase(loadTickets, (state, action) => {
       state.tickets = [];
-      state.tickets.push(action.payload);
+      action.payload.tickets.map((ticket) => state.tickets.push(ticket));
+    })
+    .addCase(setFilters, (state, action) => {
+      action.payload.map((filter) => state.filters.push(filter));
+      console.log(action.payload);
+    })
+    .addCase(deleteFilters, (state, action) => {
+      state.filters.filter((filter) => filter === action.payload[0]);
+    })
+    .addCase(addFormList, (state, action) => {
+      state.formList = action.payload;
     });
-    //.addCase(changeCoords,(state, action) => {
-    //  state.coords = [];
-    //  state.coords.push(action.payload);
-    //});
 });
 
 export {data};
