@@ -1,13 +1,13 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteFilters, setFilters } from "../store/action";
-import { getFilterList } from "../store/data/selector";
 
-function Form() {
+function Form(props) {
 
-  const dispatch = useDispatch();
+  const {isFilter, setIsFilter} = props;
 
-  const ff = useSelector(getFilterList);
+  const handleStops = (filter) => {
+    const gg = Object.entries(isFilter).map(([a , b]) => a === filter ? [a , !b]: [a, b]);
+    setIsFilter(Object.fromEntries(gg));
+  }
 
   return (
     <form>
@@ -15,24 +15,28 @@ function Form() {
         <legend>Количество пересадок</legend>
         <ul>
           <li>
-            <input className="visually-hidden" type="checkbox" name="transfer-all" id="transfer-all" />
+            <input className="visually-hidden" type="checkbox" name="transfer-all" id="transfer-all" 
+            onChange={() => handleStops('all')}/>
             <label htmlFor="transfer-all">Все</label>
           </li>
           <li>
             <input className="visually-hidden" type="checkbox" name="transfer-zero" id="transfer-zero" 
-              onChange={() => dispatch(setFilters(['0']))}/>
+              onChange={() => handleStops('zero')}/>
             <label htmlFor="transfer-zero">Без пересадок</label>
           </li>
           <li>
-            <input className="visually-hidden" type="checkbox" name="transfer-one" id="transfer-one" />
+            <input className="visually-hidden" type="checkbox" name="transfer-one" id="transfer-one" 
+            onChange={() => handleStops('one')}/>
             <label htmlFor="transfer-one">1 пересадка</label>
           </li>
           <li>
-            <input className="visually-hidden" type="checkbox" name="transfer-two" id="transfer-two" />
+            <input className="visually-hidden" type="checkbox" name="transfer-two" id="transfer-two" 
+            onChange={() => handleStops('two')}/>
             <label htmlFor="transfer-two">2 пересадки</label>
           </li>
           <li>
-            <input className="visually-hidden" type="checkbox" name="transfer-three" id="transfer-three" />
+            <input className="visually-hidden" type="checkbox" name="transfer-three" id="transfer-three" 
+            onChange={() => handleStops('three')}/>
             <label htmlFor="transfer-three">3 пересадки</label>
           </li>
         </ul>

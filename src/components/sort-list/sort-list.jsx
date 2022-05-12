@@ -1,24 +1,35 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import {sortList} from '../../const.js';
-import SortItem from '../sort-item/sort-item.jsx';
-import { getFormList} from '../store/data/selector.js';
 
-function SortList() {
+function SortList(props) {
 
-  const newList = useSelector(getFormList);
-  console.log(newList)
-  if (newList.length > 0) {
-    console.log(newList)
-    //const sortedList = newList.sort((a, b) => a.price - b.price);
-    //console.log(sortedList);
+  const {isCheap, changeCheapSort, isFast, changeFastSort} = props;
+
+  const handleCheapSort = (evt) => {
+    evt.preventDefault();
+    changeCheapSort(isCheap);
+
+    if (isFast) {
+      changeFastSort(false);
+    }
+  }
+
+  const handleFastSort = (evt) => {
+    evt.preventDefault();
+    changeFastSort(isFast);
+    
+    if (isCheap) {
+      changeCheapSort(false);
+    }
   }
 
   return (
     <ul className="tickets__filter-list">
-      {sortList.map((sort, i) => 
-        <SortItem sort={sort} key={i}/>
-      )}
+      <li className={`tickets__filter-item ${isCheap ? 'tickets__filter-item--active' : ''}`} onClick={(evt) => handleCheapSort(evt)}>
+        <span>Самый дешевый</span>
+      </li>
+      <li className={`tickets__filter-item ${isFast ? 'tickets__filter-item--active' : ''}`} onClick={(evt) => handleFastSort(evt)}>
+        <span>Самый быстрый</span>
+      </li>
     </ul>
   )
 }

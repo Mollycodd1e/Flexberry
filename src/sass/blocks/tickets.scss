@@ -16,7 +16,7 @@
   box-sizing: border-box;
 }
 
-.tickets__filter-list li {
+.tickets__filter-list .tickets__filter-item {
   width: 50%;
   padding: 14px 0;
   font-size: 12px;
@@ -37,14 +37,24 @@
   }
 }
 
-.tickets__filter-list li:first-child {
+.tickets__filter-list .tickets__filter-item:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.tickets__filter-list li:last-child {
+.tickets__filter-list .tickets__filter-item:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.tickets__filter-list .tickets__filter-item--active {
+  color: #ffffff;
+  border: 1px solid #2196f3;
+  background-color: #2196f3;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }
 
 // список билетов
@@ -160,5 +170,60 @@
   &:hover {
     opacity: 0.8;
     cursor: pointer;
+  }
+}
+
+@media(max-width: 876px) {
+  .tickets__time {
+    margin-left: 6%;
+  }
+}
+
+@media(max-width: $mobile-width-only) {
+
+  // кнопки фильтра
+  .tickets__filter-list .tickets__filter-item {
+    font-size: 10px;
+  }
+
+  // список билетов
+  .tickets__tickets-list p {
+    font-size: 20px;
+  }
+
+  // Общие стили направлений
+
+  .tickets__destination {
+    max-width: none;
+    min-width: 80px;
+  }
+
+  .tickets__forward-wrapper span,
+  .tickets__backward-wrapper span {
+    font-size: 10px;
+  }
+
+  .tickets__forward-wrapper p,
+  .tickets__backward-wrapper p {
+    font-size: 10px;
+  } 
+}
+
+@media(max-width: 433px) {
+  .tickets {
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+  }
+
+  // Общие стили направлений
+  
+  .tickets__destination {
+    max-width: none;
+    min-width: 80px;
+  }
+
+  .tickets__time {
+    margin-left: 15%;
   }
 }

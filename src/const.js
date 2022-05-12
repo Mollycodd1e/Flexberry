@@ -1,11 +1,3 @@
-export const getRandomTickets = (array, length) => {
-  return (
-    array.map(ticket => ({ ticket, r: Math.random() }))
-    .sort((a, b) => a.r - b.r)
-    .map(item => item.ticket)
-    .slice(0, length));
-}
-
 export const convertMinutes = (num) => {
   const hours = Math.floor(num / 60);
   const days = Math.floor(hours / 24);
@@ -43,9 +35,5 @@ export function getNewMinutes(date, minutes) {
 export function getTransferName(stops) {
   return stops.length > 1 ? 'пересадки' : stops.length < 1 ? `пересадок` : 'пересадка';
 }
-
-export const transferCount = ['Все','Без пересадок','1 пересадка','2 пересадки','3 пересадки'];
-
-export const sortList = ['Самый дешевый', 'Самый быстрый'];
 
 export const ticketsValue = 5;

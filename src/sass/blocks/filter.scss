@@ -103,3 +103,21 @@ form input:not(:checked) + label:hover::before,
 form input:checked + label:hover::after {
   background-color: #f1fcff;
 }
+
+@media(max-width: $mobile-width-only) {
+  //фильтр пересадок
+
+  form legend {
+    font-size: 10px;
+  }
+
+  form label {
+    font-size: 10px;
+  }
+}
+
+@media(max-width: 433px) {
+  .filter {
+    margin: 0 auto;
+  }
+}
