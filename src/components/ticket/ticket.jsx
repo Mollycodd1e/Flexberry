@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import {convertMinutes, getNewHours, getNewMinutes, getTransferName} from "../../const.js";
 
 function Ticket(props) {
@@ -60,5 +61,9 @@ function Ticket(props) {
     </li>
   )
 }
+
+Ticket.propTypes = {
+  ticket: PropTypes.object.isRequired,
+};
 
 export default Ticket;

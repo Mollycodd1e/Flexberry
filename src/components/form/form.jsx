@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Form(props) {
 
@@ -44,5 +45,16 @@ function Form(props) {
     </form>
   )
 }
+
+Form.propTypes = {
+  isFilter: PropTypes.shape({
+    zero: PropTypes.bool.isRequired,
+    one: PropTypes.bool.isRequired,
+    two: PropTypes.bool.isRequired,
+    three: PropTypes.bool.isRequired,
+    all: PropTypes.bool.isRequired,
+  }),
+  setIsFilter: PropTypes.func.isRequired,
+};
 
 export default Form;

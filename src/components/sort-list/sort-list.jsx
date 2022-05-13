@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function SortList(props) {
 
@@ -33,5 +34,12 @@ function SortList(props) {
     </ul>
   )
 }
+
+SortList.propTypes = {
+  isCheap: PropTypes.bool.isRequired,
+  changeCheapSort: PropTypes.func.isRequired,
+  isFast: PropTypes.bool.isRequired,
+  changeFastSort: PropTypes.func.isRequired,
+};
 
 export default SortList;

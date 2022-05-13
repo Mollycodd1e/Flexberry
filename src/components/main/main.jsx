@@ -5,7 +5,6 @@ import TicketsList from '../tickets-list/tickets-list.jsx';
 import SortList from '../sort-list/sort-list.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTicketsList } from '../store/data/selector.js';
-import { ticketsValue } from '../../const.js';
 import { fetchTicketsList } from '../store/api-action.js';
 
 function Main() {
@@ -14,9 +13,9 @@ function Main() {
 
   useEffect(() => {
     dispatch(fetchTicketsList());
-  }, [isFilter])
+  }, [])
 
-  const shortArray = useSelector(getTicketsList).slice(0, ticketsValue);
+  const shortArray = useSelector(getTicketsList);
 
   const [isCheap, setIsCheap] = useState(false);
 
@@ -56,6 +55,6 @@ function Main() {
       </footer>
     </div>  
   )
-} 
+}
 
 export default Main;

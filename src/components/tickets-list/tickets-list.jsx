@@ -1,18 +1,25 @@
 import React from "react";
 import Ticket from "../ticket/ticket.jsx";
+import PropTypes from 'prop-types';
 
 function TicketsList(props) {
   
   const {isFilter, isCheap, isFast, list} = props;
 
+  // Сортировка по цене
+
   const sortPrice = (arr) => {
     return arr.slice().sort((a,b) => a.price - b.price)
   }
+
+  // Сортировка по длительности
 
   const sortDuration = (arr) => {
     return arr.slice().sort((a,b) => a.segments[0].duration - b.segments[0].duration)
   }
 
+  // Фильтрация
+  
   let filteredTickets = [];
   
   if (list.length > 0 && Object.values(isFilter).filter(value => value === true).length === 0) {
@@ -44,5 +51,18 @@ function TicketsList(props) {
     </ul>
   )
 }
+
+TicketsList.propTypes = {
+  isFilter: PropTypes.shape({
+    zero: PropTypes.bool.isRequired,
+    one: PropTypes.bool.isRequired,
+    two: PropTypes.bool.isRequired,
+    three: PropTypes.bool.isRequired,
+    all: PropTypes.bool.isRequired,
+  }),
+  isCheap: PropTypes.bool.isRequired,
+  isFast: PropTypes.bool.isRequired,
+  list: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default TicketsList
